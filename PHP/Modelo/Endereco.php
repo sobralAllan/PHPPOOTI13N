@@ -1,4 +1,6 @@
 <?php
+    namespace PHP\Modelo;
+
     class Endereco{
         private string $logradouro;
         private string $numero;

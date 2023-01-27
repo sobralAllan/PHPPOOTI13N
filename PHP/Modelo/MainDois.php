@@ -1,9 +1,14 @@
 <?php
+    namespace PHP\Modelo;
+
     require_once('Pessoa.php');
-    require_once('Cliente.php');
+    require_once('Conta/Cliente.php');
     require_once("Funcionario.php");
-    require_once("Conta.php");
+    require_once("Conta/Conta.php");
     require_once("Endereco.php");
+
+    use PHP\Modelo\Conta\Cliente;
+    use PHP\Modelo\Conta\Conta;
 
     $enderecAllan = new Endereco(
         "Avenida Senador Vergueiro",
@@ -24,5 +29,9 @@
     echo $contaAllan->getSaldo();
     echo $contaAllan->depositar($contaAllan,400);
     echo $contaAllan->getSaldo();
+
+    echo "<br><br>Taxa da Conta R$ ".$clientAllan->getTaxa();
+    echo $clientAllan->setTaxa(100);
+    echo "<br><br>Taxa da Conta R$ ".$clientAllan->getTaxa();
 
 ?>

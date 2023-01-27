@@ -1,4 +1,6 @@
 <?php
+    namespace PHP\Modelo;
+
     require_once('Conta.php');//Conectei as classes
 
     //Criando a conta

@@ -1,4 +1,6 @@
 <?php
+    namespace PHP\Modelo;
+
     require_once("Endereco.php");
 
     class Funcionario extends Pessoa{

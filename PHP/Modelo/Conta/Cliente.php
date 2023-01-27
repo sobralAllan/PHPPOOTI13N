@@ -1,5 +1,11 @@
 <?php
+    namespace PHP\Modelo\Conta;//referência do projeto que estou usando
+
     require_once("Endereco.php");
+
+    //Conectar o arquivo ao diretório
+    use PHP\Modelo\Pessoa;//Endereço do arquivo que estou usando
+    use PHP\Modelo\Endereco;
 
     class Cliente extends Pessoa{
         private float $taxa;

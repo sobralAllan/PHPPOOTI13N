@@ -4,9 +4,9 @@
     require_once("Endereco.php");
 
     class Funcionario extends Pessoa{
-        public string $matricula;
-        public float  $salario;
-        public string $cargo;
+        protected string $matricula;
+        protected float  $salario;
+        protected string $cargo;
 
         public function __construct(
             string $cpf,
@@ -24,35 +24,23 @@
             $this->cargo     = $cargo;
         }//fim do construtor
 
-        //Métodos Gets e Sets
-        public function getMatricula() : string
-        {
-            return $this->matricula;
-        }//fim da matricula
+        public function __get(string $nomeDaVariavelQueVoceDeclarouLaNoConstrutor){
+            return $this->$nomeDaVariavelQueVoceDeclarouLaNoConstrutor;
+        }//fim do get
 
-        public function setMatricula() : void
+        public function __set(string $nomeVariavel, string $valor) : void
         {
-            $this->matricula = $matricula;
-        }//fim da matricula
+            $this->nomeVariavel = $valor;
+        }//fim do set
 
-        public function getSalario() : float
+        public function __toString() : string
         {
-            return $this->salario;
-        }//fim do salario
+            return "<br>Matrícula: ".$this->matricula."<br>Cargo: ".$this->cargo."<br>Salário: ".$this->salario;
+        }//fim do toString
 
-        public function setSalario() : void
+        public function calcular() : float
         {
-            $this->salario = $salario;
-        }//fim do salario
-
-        public function getCargo() : string
-        {
-            return $this->cargo;
-        }//fim do cargo
-
-        public function setCargo() : void
-        {
-            $this->cargo = $cargo;
-        }//fim do cargo
+            return $this->salario * 0.07;
+        }//fim do método
     }//fim do Funcionario
 ?>

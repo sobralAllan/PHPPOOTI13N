@@ -8,7 +8,7 @@
     use PHP\Modelo\Endereco;
 
     class Cliente extends Pessoa{
-        private float $taxa;
+        protected float $taxa;
 
         public function __construct(
             string $cpf, 
@@ -32,5 +32,25 @@
         {
             $this->taxa = $taxa;
         }//fim do método
+
+        public function __Tostring() : string
+        {
+            return "<br>Taxa: $this->taxa<br><br>";
+        }//fim da string
+
+        public function __get(string $atributo) : string
+        {
+            return $atributo;
+        }
+
+        public function __set(string $atributo, string $valor) : void
+        {
+            $this->$atributo = $valor;
+        }
+
+        public function calcular() : float
+        {
+            return $this->taxa * 0.88;
+        }//fim do calcular
     }//fim da classe
 ?>

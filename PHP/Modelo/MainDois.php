@@ -9,6 +9,8 @@
 
     use PHP\Modelo\Conta\Cliente;
     use PHP\Modelo\Conta\Conta;
+    use PHP\Modelo\Funcionario;
+    use PHP\Modelo\Pessoa;
 
     $enderecAllan = new Endereco(
         "Avenida Senador Vergueiro",
@@ -33,5 +35,38 @@
     echo "<br><br>Taxa da Conta R$ ".$clientAllan->getTaxa();
     echo $clientAllan->setTaxa(100);
     echo "<br><br>Taxa da Conta R$ ".$clientAllan->getTaxa();
+
+    echo $clientAllan;//Imprimi os dados, utilizando o TOSTRING
+    echo $clientAllan->taxa;
+    echo $clientAllan->taxa = 200;
+
+    $func = new Funcionario('112','Allanzinho','11',$enderecAllan,'1','15000','Professor');
+    echo $func;
+
+    echo "<br><br><br>";
+    echo $func->salario;//USO DO GET, BASTA COLOCAR O NOME DA VARIÁVEL NA FRENTE DA SETA... (->)
+
+    echo "<br><br><br>";
+    $func->salario = 16000;
+    echo "<br>Novo Salário: ".$func->cpf;
+    echo "<br>".$func->calcular();
+    echo "<br>".$clientAllan->calcular();
+
+    /*
+    echo "<br><br><br>";
+    $person = new Pessoa('123','Gabriela','11111',$enderecAllan);
+    echo $person->nome;
+    */
+
+
+
+
+
+
+
+
+    
+
+
 
 ?>

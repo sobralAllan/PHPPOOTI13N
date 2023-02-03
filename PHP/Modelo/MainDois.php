@@ -10,6 +10,7 @@
     require_once("DAO/Inserir.php");
     require_once("DAO/Consultar.php");
     require_once("DAO/Atualizar.php");
+    require_once("DAO/Excluir.php");
 
     use PHP\Modelo\Conta\Cliente;
     use PHP\Modelo\Conta\Conta;
@@ -19,6 +20,7 @@
     use PHP\Modelo\DAO\Inserir;
     use PHP\Modelo\DAO\Consultar;
     use PHP\Modelo\DAO\Atualizar;
+    use PHP\Modelo\DAO\Excluir;
     /*
     $enderecAllan = new Endereco(
         "Avenida Senador Vergueiro",
@@ -79,7 +81,8 @@
     $atu = new Atualizar();//Permissão para acessar os métodos da classe atualizar;
     echo $atu->update($conexao, "nome", "Maria", 1, "pessoa");
     
-
+    $exc = new Excluir();//Permissão para acessar os métodos da classe excluir;
+    echo $exc->deletar($conexao, "pessoa", 3);
 
 
 

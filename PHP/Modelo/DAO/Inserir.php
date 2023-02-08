@@ -31,3 +31,32 @@
         }//fim do cadastrar
     }//fim da classe
 ?>
+
+<!Doctype HTML>
+<HTML>
+    <HEAD>
+
+    </HEAD>
+    <BODY>
+        <form method="POST">
+            <label>Nome: </label>
+            <input type="text" name="tNome" placeholder="Informe seu nome"/><br><br>
+
+            <label>Telefone: </label>
+            <input type="text" name="tTelefone" placeholder="1199999-9999"/><br><br>
+
+            <button>Cadastrar</button>
+
+            <?php 
+                if($_POST['tNome'] != "" && $_POST['tTelefone'] != ""){
+                    $conexao = new Conexao();
+                    $cadast  = new Inserir();
+                    echo $cadast->cadastrar($conexao, "pessoa", $_POST['tNome'], $_POST['tTelefone']);
+                    return;
+                }
+                echo "Preencha os campos!";
+            ?>
+        </form>
+        <a href="Consultar.php"><button>Consultar</button></a>
+    </BODY>
+</HTML>

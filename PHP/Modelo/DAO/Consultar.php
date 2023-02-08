@@ -19,7 +19,7 @@
                 
                 while($dados = mysqli_fetch_Array($result)){
                     if($dados["codigo"] == $codigo){
-                        echo "<br>Código: ".$dados["codigo"]."<br>Nome: ".$dados["nome"]."<br>Telefone: ".$dados["telefone"];
+                        echo "\nCódigo: ".$dados["codigo"]."\nNome: ".$dados["nome"]."\nTelefone: ".$dados["telefone"];
                         return;//Encerrar a operacao
                     }//fim do if
                 }//fim do while
@@ -50,3 +50,30 @@
 
     }//fim do consultar
 ?>
+
+<!Doctype HTML>
+<HTML>
+    <HEAD>
+    </HEAD>
+    <BODY>
+        <form method="POST">
+            <label>Código: </label>
+            <input type="number" name="codigo"/><br><br>
+
+            <button>Consultar</button>
+            
+            
+        </form>
+        <TextArea style="width:300px;height:100px">
+                <?php 
+                    if($_POST['codigo'] != 0 && $_POST['codigo'] >= 0){
+                        $conexao = new Conexao();
+                        $consul  = new Consultar();
+                        echo $consul->consultarIndividual($conexao,"pessoa",$_POST['codigo']);
+                        return;
+                    }
+                    echo "Preencha o código para buscar";
+                ?>
+            </TextArea>
+    </BODY>
+</HTML>
